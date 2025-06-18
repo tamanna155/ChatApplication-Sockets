@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Chat from './pages/Chat';
-import SetAvatar from './pages/setAvatar';
+import SetAvatar from './pages/SetAvatar';
 
 export default function App(){
   return(
