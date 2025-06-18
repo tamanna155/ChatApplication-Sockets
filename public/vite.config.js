@@ -9,7 +9,7 @@ export default defineConfig({
     nodePolyfills(),
   ],
   server: {
-    host: 'chatapplication-sockets.onrender.com',
+    host: '0.0.0.0',
     port: 5173,
   }
 })
