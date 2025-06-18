@@ -6,7 +6,7 @@ const dotenv= require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const messagesRoute = require('./routes/messagesRoute');
 
-const port=10000;
+const port=3000;
 dotenv.config();
 const app=express();
 
@@ -38,7 +38,7 @@ const server= app.listen(port,()=>{
 
 const io= socket(server, {
     cors: {
-        origin: "http://localhost:10000",
+        origin: "http://localhost:3000",
         credentials: true,
     },
 });
