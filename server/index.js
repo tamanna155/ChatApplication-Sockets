@@ -10,7 +10,15 @@ dotenv.config();
 const app=express();
 const PORT= process.env.PORT || 3000;
 
+app.use(cors({
+  origin: "https://chatapp-frontend-tmep.onrender.com", 
+  methods: ["GET", "POST"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
 app.use(express.json());
+
 
 app.use('/api/auth',userRoutes);
 app.use('/api/messages',messagesRoute);
