@@ -26,7 +26,7 @@ main().then(()=>{
     console.log(err);
 });
 
-const server= app.listen(port,()=>{
+const server= app.listen(process.env.PORT,()=>{
     console.log(`Access the server on http://localhost:${PORT}`);
 });
 
