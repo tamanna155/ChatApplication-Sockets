@@ -32,7 +32,7 @@ const server= app.listen(process.env.PORT,()=>{
 
 const io = socket(server, {
   cors: {
-    origin: "https://chatapp-frontend.onrender.com",
+    origin: "https://chatapp-frontend-tmep.onrender.com/",
     methods: ["GET", "POST"]
   }
 });

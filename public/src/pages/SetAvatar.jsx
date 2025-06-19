@@ -7,8 +7,6 @@ import axios from 'axios';
 import "react-toastify/ReactToastify.css"
 import { setAvatarRoute } from '../utils/APIRoutes';
 
-window.Buffer = window.Buffer || require("buffer").Buffer; 
-
 export default function SetAvatar() {
     const navigate= useNavigate();
 
