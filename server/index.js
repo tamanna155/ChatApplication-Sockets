@@ -6,15 +6,9 @@ const dotenv= require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const messagesRoute = require('./routes/messagesRoute');
 
-const port=3000;
 dotenv.config();
 const app=express();
-
-app.use(cors({
-    // origin: "http://localhost:5173",
-    // methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
-}));
+const PORT= process.env.PORT || 3000;
 
 app.use(express.json());
 
@@ -33,14 +27,14 @@ main().then(()=>{
 });
 
 const server= app.listen(port,()=>{
-    console.log(`Access the server on http://localhost:${port}`);
+    console.log(`Access the server on http://localhost:${PORT}`);
 });
 
-const io= socket(server, {
-    cors: {
-        origin: "http://localhost:3000",
-        credentials: true,
-    },
+const io = socket(server, {
+  cors: {
+    origin: "https://chatapp-frontend.onrender.com",
+    methods: ["GET", "POST"]
+  }
 });
 
 global.onlineUsers = new Map();
