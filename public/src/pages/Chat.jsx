@@ -34,6 +34,9 @@ export default function Chat() {
     if(currentUser){
       socket.current = io(host);
       socket.current.emit('add-user',currentUser._id);
+      socket.current.on("connect", () => {
+        console.log("✅ Socket connected with ID:", socket.current.id);
+      });
     }
   }, [currentUser])
 

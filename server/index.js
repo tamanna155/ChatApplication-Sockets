@@ -40,7 +40,7 @@ const server= app.listen(process.env.PORT,()=>{
 
 const io = socket(server, {
   cors: {
-    origin: "https://chatapp-frontend-tmep.onrender.com/",
+    origin: "https://chatapp-frontend-tmep.onrender.com",
     methods: ["GET", "POST"]
   }
 });
@@ -56,7 +56,16 @@ io.on("connection", (socket) => {
     socket.on("send-msg", (data) => {
         const sendUserSocket = onlineUsers.get(data.to);
         if(sendUserSocket) {
-            socket.to(sendUserSocket).emit('msg-recieve', data.message);
+            socket.to(sendUserSocket).emit('msg-receive', data.message);
         }
     });
+});
+
+io.on("disconnect", () => {
+  for (const [userId, sockId] of onlineUsers.entries()) {
+    if (sockId === socket.id) {
+      onlineUsers.delete(userId);
+      break;
+    }
+  }
 });
